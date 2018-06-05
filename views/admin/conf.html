@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beego Admin Conf</title>
+    <style type="text/css">
+        .table1 {
+            width: 600px;
+            height: auto;
+            text-align: center;
+            font-size: medium;
+        }
+        thead {
+            font-size:1.1em;
+            padding: 5px 0px 4px;
+            background-color:#A7C942;
+            color:#ffffff;
+        }
+        table {
+            width:100%;
+            border-collapse:collapse;
+        }
+        td {
+            width: 200px;
+            border: solid 1px #000000;
+        }
+        tr.alt td {
+            color:#000000;
+            background-color:#EAF2D3;
+        }
+    </style>
+</head>
+<body>
+    <div class="table1">
+        <table>
+            <thead>
+                <td>Type</td>
+                <td>Type-Key</td>
+                <td>Type-Value</td>
+            </thead>
+
+            {{range $k, $v := .dev}}
+            <tr>
+                <td>Dev</td>
+                <td>{{$k}}</td>
+                <td>{{$v}}</td>
+            </tr>
+            {{end}}
+
+
+            {{range $k, $v := .prod}}
+            <tr class="alt">
+                <td>Prod</td>
+                <td>{{$k}}</td>
+                <td>{{$v}}</td>
+            </tr>
+            {{end}}
+
+
+            {{range $k, $v := .test}}
+            <tr>
+                <td>Test</td>
+                <td>{{$k}}</td>
+                <td>{{$v}}</td>
+            </tr>
+            {{end}}
+
+        </table>
+    </div>
+</body>
+</html>

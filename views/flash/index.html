@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beego Flash Page</title>
+</head>
+<body>
+    {{if .error }}
+    <div> {{.flash.error}} </div><br>
+    {{end}}
+
+    {{if .notice }}
+    <div> {{.flash.notice}} </div><br>
+    {{end}}
+
+    {{if .warning }}
+    <div> {{.flash.warning}} </div><br>
+    {{end}}
+
+
+    {{if .success }}
+    <div> {{.flash.success}} </div><br>
+    {{end}}
+</body>
+</html>

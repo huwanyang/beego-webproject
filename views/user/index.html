@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beego User Page</title>
+    <style type="text/css">
+        body {
+            width: 30%;
+        }
+        table {
+            width:100%;
+            border-collapse:collapse;
+        }
+        table tr {
+            line-height: 30px;
+        }
+        td {
+            border: solid 1px #000000;
+        }
+        td input[type="text"]{
+            width: 90%;
+            height: 22px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/api/v1/user/saveuser" enctype="multipart/form-data">
+        <input type="hidden" name="uuid" value="{{.uuid}}">
+        <table>
+            <tr>
+                <td>姓名：</td>
+                <td><input name="username" type="text" value="{{.user.Name}}"/></td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td><input name="age" type="text" value="{{.user.Age}}"></td>
+            </tr>
+            <tr>
+                <td>邮箱：</td>
+                <td><input name="Email" type="text" value="{{.user.Email}}"></td>
+            </tr>
+            <tr>
+                <td>头像：</td>
+                <td><input name="uploadImage" type="file"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="提交">
+                    <input type="button" value="取消">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
