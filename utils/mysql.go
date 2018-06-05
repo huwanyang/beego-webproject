@@ -52,9 +52,9 @@ func doSql() {
 	// Exec 返回 sql.Result 对象
 	rs, err := o.Raw("update user set age = ? where id = ?", "30", 5).Exec()
 	if err == nil {
-		rowsAffected,_ := rs.RowsAffected()
-		lastInsertId,_ := rs.LastInsertId()
-		fmt.Printf("rs.RowsAffected: %v, rs.LastInsertId: %v\n", rowsAffected, lastInsertId )
+		rowsAffected, _ := rs.RowsAffected()
+		lastInsertId, _ := rs.LastInsertId()
+		fmt.Printf("rs.RowsAffected: %v, rs.LastInsertId: %v\n", rowsAffected, lastInsertId)
 	}
 	fmt.Println("0: --------------------------------------------")
 
@@ -72,7 +72,7 @@ func doSql() {
 	var lists []orm.ParamsList
 	num, err = o.Raw("select * from user where id > ?", 3).ValuesList(&lists)
 	if err == nil && num > 0 {
-		for _,list := range lists {
+		for _, list := range lists {
 			fmt.Printf("User: %v\n", list)
 		}
 	}
@@ -82,7 +82,7 @@ func doSql() {
 	var list orm.ParamsList
 	num, err = o.Raw("select name from user where id > ?", 2).ValuesFlat(&list)
 	if err == nil && num > 0 {
-		for _,val := range list {
+		for _, val := range list {
 			fmt.Printf("User.Name: %s\n", val)
 		}
 	}
@@ -106,7 +106,6 @@ func doSql() {
 		fmt.Printf("Name: %v\n", str.Name)
 	}
 	fmt.Println("5: --------------------------------------------")
-
 
 	// QueryRow 提供高级 sql mapper 功能，支持 struct
 	var user User
@@ -164,7 +163,7 @@ func doTransaction() {
 
 // 支持 QueryBuilder，功能类似 ORM，但 ORM 更适用于简单的 CRUD 操作，而 QueryBuilder 则更适用于复杂的查询
 func doQueryBuilder() {
-	qb,_ := orm.NewQueryBuilder("mysql")
+	qb, _ := orm.NewQueryBuilder("mysql")
 	qb.Select("id,name,age").
 		From("user").
 		Where("age > ?").

@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/astaxie/beego"
-	_ "webproject/routers"
 	"webproject/controllers"
+	_ "webproject/routers"
 )
 
 func main() {

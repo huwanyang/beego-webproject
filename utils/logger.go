@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"github.com/astaxie/beego"
 	"errors"
+	"github.com/astaxie/beego"
 )
 
 var inputs chan inputData
@@ -16,10 +16,10 @@ type inputData struct {
 
 type outputData struct {
 	result int
-	error bool
+	error  bool
 }
 
-func consumeResults(){
+func consumeResults() {
 	outputs <- outputData{result: -1, error: false}
 }
 
@@ -83,7 +83,7 @@ func main() {
 	go generateInputs()
 	beego.Informational("Starting sending data.")
 
-	for{
+	for {
 		select {
 		case input := <-inputs:
 			processInput(input)

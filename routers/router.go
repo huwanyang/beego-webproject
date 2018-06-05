@@ -3,13 +3,13 @@ package routers
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
-	"webproject/controllers"
-	"net/http"
 	"html/template"
+	"net/http"
+	"webproject/controllers"
 )
 
 // 自定义错误页面跳转页面
-func pageNotFound(w http.ResponseWriter, r *http.Request){
+func pageNotFound(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.New("404.html").ParseFiles(beego.BConfig.WebConfig.ViewsPath + "/404.html")
 	data := make(map[string]interface{})
 	data["content"] = "Sorry Page Not Found."

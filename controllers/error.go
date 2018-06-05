@@ -31,8 +31,7 @@ func (c *ErrorController) Errorcustom() {
 }
 
 func (c *ErrorController) Errorunknow() {
-c.Data["code"] = "UnknowError"
-c.Data["content"] = "系统未知异常，请与系统管理员联系。"
-c.TplName = "error.html"
+	c.Data["code"] = "UnknowError"
+	c.Data["content"] = "系统未知异常，请与系统管理员联系。"
+	c.TplName = "error.html"
 }
-

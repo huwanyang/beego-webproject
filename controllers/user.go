@@ -84,7 +84,7 @@ func (this *UserController) JsonpPrint() {
 	this.ServeJSONP()
 }
 
-func (this *UserController) FormatPrint(){
+func (this *UserController) FormatPrint() {
 	var user = bean.User{}
 	user.Name = "wanyang3"
 	user.Age = 23
